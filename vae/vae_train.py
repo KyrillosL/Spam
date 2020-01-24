@@ -222,11 +222,14 @@ if __name__ == '__main__':
             validation_data=(x_test, None),
             callbacks=[es])
     vae.save_weights('vae_mlp_mnist.h5')
+    
 
     score2 = vae.evaluate(x_test, None, verbose=1)
     print('Score', score.history)
     print('Score', score2)
     plot_results(models, data)
-
-
-
+    
+    print("LOADING ALL EMAILS")
+    data = (X, y)
+    
+    plot_results(models, data)
